@@ -11,8 +11,8 @@
         	
         	// Default options object
             this.defaultOptions = {};
+            
             // Combine user settings with defaults
-
             var settings = $.extend({}, this.defaultOptions, options);
             
             // Return the object, so chaining works
