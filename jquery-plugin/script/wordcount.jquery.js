@@ -10,7 +10,9 @@
         "wordCount" : function(options) {
         	
         	// Default options object
-            this.defaultOptions = {};
+            this.defaultOptions = {
+                "targetAttr" : "count"
+            };
             
             // Combine user settings with defaults
             var settings = $.extend({}, this.defaultOptions, options);
@@ -19,7 +21,28 @@
            	return this.each(function() {
                 var $this = $(this);
 
-                // Do stuff here!
+                var words = $this.text().split(" ");
+                var count = 0;
+
+                if (settings.searchFor) {
+                    $.each(words, function(i,item) {
+                        if (settings.searchFor.toLowerCase() === item.toLowerCase()) {
+                            count++;
+                        }
+                    });
+
+                }
+                else {
+                    count = words.length;
+                }
+
+                if (settings.result) {
+                    $this.next(settings.result).text(count + " word(s)");
+                }
+                else {
+                    $this.attr("data-" + settings.targetAttr, count);
+                }
+
             });
         }
     });
