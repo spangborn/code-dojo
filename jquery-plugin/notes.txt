@@ -2,3 +2,26 @@ Notes
 
 Word Count implementation:
 http://stackoverflow.com/questions/765419/javascript-word-count-for-any-given-dom-element
+
+
+test("Word Count", function () {
+	// Append some test data to the page
+	var $p = $("<p>", {
+		"text"  : "Lorem ipsum dolor sit amet.",
+		"class" : "test-1"
+	}).appendTo("body");
+
+	// Run the plugin
+	$(".test-1").wordCount();
+
+	// Get the word count from the data attribute
+	var count = $(".test-1").data("words");
+
+	// The actual tests
+	ok(typeof count != undefined, "Count is defined");
+	//equal(5, count, "Test 5 words");
+
+	// Tear down
+	$(".test-1").remove();
+
+});
