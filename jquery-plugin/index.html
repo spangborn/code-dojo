@@ -10,7 +10,13 @@
 	<script>
 		$(document).ready(function() {
 			// Call our plugin when the DOM is ready
-			$("p").wordCount({
+			$("p:first").wordCount();
+
+			$("p:nth-of-type(2)").wordCount({
+				"result" : ".result"
+			});
+			
+			$("p:nth-of-type(3)").wordCount({
 				"searchFor" : "sit",
 				"result" : ".result"
 			});
