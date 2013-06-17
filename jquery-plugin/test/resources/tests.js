@@ -39,7 +39,7 @@ test("Word Count", function (){
 	$text.remove();
 });
 
-test("Target Argument", function(){
+test("Data Attribute", function(){
 	var $body = $("body");
 	var $text = $("<p>", {
 		"class" : "test-3",
@@ -56,7 +56,7 @@ test("Target Argument", function(){
 	$text.remove();
 });
 
-test("Result DIV", function() {
+test("Result Target", function() {
 
 	var $body = $("body");
 	var $text = $("<p>", {
